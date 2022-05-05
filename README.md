@@ -1,3 +1,1 @@
-# ChatJS
-
-Criei um chat para treinar o real time database do firebase
+<h1 align="center"> MeguChat </h1>
