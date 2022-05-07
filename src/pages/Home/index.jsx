@@ -1,8 +1,13 @@
+import { Grid } from './styles'
+import { ChatInfo, ChatMessage, ChatsList, UserInfo } from '../../shared/components'
 export const Home = () => {
 	return(
-		<div>
-            Almost
-		</div>
+		<Grid>
+			<ChatInfo/>
+			<ChatMessage/>
+			<ChatsList/>
+			<UserInfo/>
+		</Grid>
 	)
 
 }
