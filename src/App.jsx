@@ -1,12 +1,16 @@
-import './App.css'
+import { BrowserRouter } from 'react-router-dom'
+import { GlobalStyle } from './GlobalStyle'
+import { AppRoutes } from './routes'
+
 
 function App() {
 
-  return (
-    <div>
-      Ok
-    </div>
-  )
+	return (
+		<BrowserRouter>
+			<AppRoutes/>
+			<GlobalStyle/>
+		</BrowserRouter>
+	)
 }
 
 export default App
