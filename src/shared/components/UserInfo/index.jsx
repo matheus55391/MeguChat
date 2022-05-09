@@ -8,9 +8,6 @@ export const UserInfo = () => {
 			</UserInfoRow>
 			<ButtonsRow>
 				<ConfigButton/>
-
-
-
 			</ButtonsRow>
 		</Container>
 	)
