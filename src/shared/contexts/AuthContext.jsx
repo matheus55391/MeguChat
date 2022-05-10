@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import { auth } from '../services/firebase-config'
 import { 
 	signInWithEmailAndPassword, 
 	createUserWithEmailAndPassword,
-	signOut
+	signOut,
+	onAuthStateChanged
 } from 'firebase/auth'
 
 const AuthContext = createContext()
@@ -14,6 +15,7 @@ export const useAuth = () => {
 }
 
 export const AuthProvider = ({ children })=>{
+	// eslint-disable-next-line no-unused-vars
 	const [currentUser, setCurrentUser] = useState() 
 	
 	const logar = async (email, password) => {
@@ -27,6 +29,12 @@ export const AuthProvider = ({ children })=>{
 	const deslogar = async () => {
 		return await signOut(auth)
 	}
+	
+	useEffect(() => {
+		onAuthStateChanged(auth, user=>{
+			setCurrentUser(user)
+		})
+	}, [])
 
 	const value = {
 		currentUser,
