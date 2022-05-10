@@ -6,11 +6,11 @@ export const Grid = styled.div`
     grid-template-columns: 240px auto;
     grid-template-rows: 59px auto;
     
-    @media screen and (min-width: 801px){
-        grid-template-columns: 30% auto;
+    @media screen and (min-width: 501px){
+        grid-template-columns: 20% auto;
         grid-template-rows: 50px auto;
     }    
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 500px){
         grid-template-columns: 240px auto;
         grid-template-rows: 50px auto;
     }

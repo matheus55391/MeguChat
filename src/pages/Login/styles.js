@@ -22,17 +22,24 @@ export const LoginFormCard = styled.div`
 
 `
 
-export const CardTitle = styled.h3`
-    margin-bottom: 1em;
+// export const CardTitle = styled.h3`
+//     margin-bottom: 1em;
 
-`
-export const FormInput = styled.input`
-    margin-bottom: 1em;
-    border: 1px ridge #d6d6d6;
+// `
 
-`
-export const FormButton = styled.button`
-    margin-bottom: 1em;
-    border: 1px ridge #d6d6d6;
-    cursor: pointer;
-`
+// export const FormInput = styled.input`
+//     margin-bottom: 1em;
+//     border: 1px ridge #d6d6d6;
+
+// `
+
+// export const FormButton = styled.button`
+//     margin-bottom: 1em;
+//     border: 1px ridge #d6d6d6;
+//     cursor: pointer;
+
+// `
+
+// export const GoogleLoginButton = styled.button`
+
+// `

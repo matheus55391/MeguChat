@@ -2,11 +2,12 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { auth } from '../services/firebase-config'
 import { 
-	signInWithEmailAndPassword, 
-	createUserWithEmailAndPassword,
-	signOut,
-	onAuthStateChanged
+	GoogleAuthProvider, 
+	signInWithPopup,
+	onAuthStateChanged,
+	signOut
 } from 'firebase/auth'
+
 
 const AuthContext = createContext()
 
@@ -16,30 +17,31 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children })=>{
 	// eslint-disable-next-line no-unused-vars
-	const [currentUser, setCurrentUser] = useState() 
+	const [usuario, setUsuario] = useState() 
 	
-	const logar = async (email, password) => {
-		return await signInWithEmailAndPassword(auth, email, password)
+	const googleLogin = () => {
+		const googleAuthProvider = new GoogleAuthProvider()
+		signInWithPopup(auth, googleAuthProvider)
 	}
 
-	const registrar = async (email, password) => {
-		return await createUserWithEmailAndPassword(auth, email, password)
-	}
-
-	const deslogar = async () => {
-		return await signOut(auth)
+	const deslogar = () => {
+		signOut(auth)
 	}
 	
 	useEffect(() => {
-		onAuthStateChanged(auth, user=>{
-			setCurrentUser(user)
+		const deslogando = onAuthStateChanged(auth, currentUser=>{
+			setUsuario(currentUser)
+
 		})
+		return () => {
+			deslogando()
+		}
+		
 	}, [])
 
 	const value = {
-		currentUser,
-		logar,
-		registrar,
+		usuario,
+		googleLogin,
 		deslogar
 	}
 	

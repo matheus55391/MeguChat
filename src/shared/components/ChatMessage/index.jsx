@@ -1,4 +1,4 @@
-import { Container, MensagerPacote, InputPacote, Input } from './styles'
+import { Container, MensagerPacote, InputPacote, Input, EmojiButton, SandButton } from './styles'
 
 export const ChatMessage = () => {
 	return(
@@ -13,8 +13,9 @@ export const ChatMessage = () => {
 				<div><div>FOTO</div><div>Teste texto</div></div>
 			</MensagerPacote>
 			<InputPacote>
-				Tste
-				{/* <Input type="text" placeholder="Digite a sua mensagem..."/> */}
+				<EmojiButton/>
+				<Input type="text" placeholder="Digite a sua mensagem..."/>
+				<SandButton/>
 			</InputPacote >
 		</Container>
 	)

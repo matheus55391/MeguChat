@@ -1,37 +1,36 @@
-import { useRef } from 'react'
-import { Container, LoginFormCard, CardTitle, FormInput, FormButton } from './styles'
+// import { useRef } from 'react'
+import { Container, LoginFormCard } from './styles'
+import GoogleButton from 'react-google-button'
+
 import { useAuth } from '../../shared/contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export const Login = () => {
-	const { logar } = useAuth()
-	const emailRef = useRef(null)
-	const passwordRef = useRef(null)  
+	const navigate = useNavigate()
+	const { usuario, googleLogin } = useAuth()
 
-	const Entrar = async ()=>{
-		console.log('Entrar')
-
-		const email = emailRef.current.value
-		const password = passwordRef.current.value
+	const handleGoogleLogin = async ()=>{
 		try{
-			var result = await logar(email, password)
-			console.log(result)
-		}catch(error){
-			console.log(error.message)
+			await googleLogin()			
+		} catch(error){
+			console.log(error)
 		}
-
-
 	}
+	
+	useEffect(()=>{	
+		console.log(usuario)	
+		if(usuario) navigate('/chat/')
+	}, [usuario])
 
 	return(
 		<Container>
 			<LoginFormCard>
-				<CardTitle>LOGIN</CardTitle>
-				<FormInput placeholder="E-mail" type="text" ref={emailRef}/>
-
-				<FormInput placeholder="Password" type="password" ref={passwordRef}/>
-
-				<FormButton onClick={Entrar}>Entrar</FormButton>
-				<FormButton>Registrar</FormButton>
+				<GoogleButton
+					label='Entrar com o Google'
+					onClick={handleGoogleLogin}
+					type='light' //dark light
+				/>
 			</LoginFormCard>
 
 		</Container>
