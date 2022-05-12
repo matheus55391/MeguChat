@@ -19,7 +19,6 @@ export const Login = () => {
 	}
 	
 	useEffect(()=>{	
-		console.log(usuario)	
 		if(usuario) navigate('/chat/')
 	}, [usuario])
 

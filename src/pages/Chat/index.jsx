@@ -1,14 +1,12 @@
 import { Grid } from './styles'
-import { ChatInfo, ChatMessage, ChatsList, UserInfo } from '../../shared/components'
+import { ChatInfo, ChatMessage } from '../../shared/components'
 
 export const Chat = () => {
-
+	
 	return(
 		<Grid>
 			<ChatInfo/>
 			<ChatMessage/>
-			<ChatsList/>
-			<UserInfo/>
 		</Grid>
 	)
 

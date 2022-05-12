@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { EmojiHand } from '@styled-icons/fluentui-system-regular/EmojiHand'
 import { PaperPlane } from '@styled-icons/boxicons-solid/PaperPlane'
-
+import ScrollableFeed from 'react-scrollable-feed'
 export const Container = styled.div`
     background-color: #ece5dd;  
     grid-area: CM;
@@ -11,25 +11,17 @@ export const Container = styled.div`
     border-left: 2px solid rgba(28,110,164,0.45);
 `
 
-export const MensagerPacote = styled.div`
-    background-color: red;
+export const MensagemArea = styled(ScrollableFeed)`
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 46px - 68px);
     overflow-y: scroll;
     ::-webkit-scrollbar {
-        width: 8px;
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--tertiary);
-        border-radius: 4px;
-    }
-    ::-webkit-scrollbar-track {
-        background-color: var(--secondary);
+        width: 0px;
     }
 `
 
-export const InputPacote = styled.div`
+export const InputArea = styled.div`
     display: flex;
     flex-direction: row;
     height: 50px;
