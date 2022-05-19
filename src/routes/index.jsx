@@ -6,7 +6,7 @@ export const AppRoutes = () => {
 	const { usuario } = useAuth()
 
 	const PrivateRoute = () =>{
-		return usuario ? <Outlet /> : <Navigate to="/chat/login" />
+		return usuario ? <Outlet /> : <Navigate to="/MeguChat/chat/login" />
 	}
 
 	return (
