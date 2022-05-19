@@ -11,11 +11,11 @@ export const AppRoutes = () => {
 
 	return (
 		<Routes>			
-			<Route path='/chat/login' element={<Login/>}/>
+			<Route path='/MeguChat/chat/login' element={<Login/>}/>
 			<Route element={<PrivateRoute/>}>
-				<Route path='/chat/' element={<Chat/>}/>
+				<Route path='/MeguChat/chat/' element={<Chat/>}/>
 			</Route>
-			<Route path='*' element={<Navigate to="/chat/login" />}/>
+			<Route path='*' element={<Navigate to="/MeguChat/chat/login" />}/>
 		</Routes>
 	)
 }
