@@ -1,7 +1,7 @@
 {
   "name": "meguchat",
   "private": true,
-  "homepage": "./",
+  "homepage": "https://matheus55391.github.io/MeguChat/",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
