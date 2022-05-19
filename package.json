@@ -1,7 +1,7 @@
 {
   "name": "meguchat",
   "private": true,
-  "homepage": "https://matheus55391.github.io/MeguChat/",
+  "homepage": "./",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
@@ -28,6 +28,5 @@
     "eslint": "^8.15.0",
     "eslint-plugin-react": "^7.29.4",
     "vite": "^2.9.7"
-    "gh-pages": "",
   }
 }
