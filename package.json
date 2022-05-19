@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "npm run build && vite preview"
+    "deploy": "tsc && vite build && gh-pages -d dist"
   },
   "dependencies": {
     "emoji-picker-react": "^3.5.1",
