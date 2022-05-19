@@ -1,6 +1,7 @@
 {
   "name": "meguchat",
   "private": true,
+  "homepage": "./",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
