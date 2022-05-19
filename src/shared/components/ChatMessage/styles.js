@@ -19,6 +19,7 @@ export const MensagemArea = styled(ScrollableFeed)`
     ::-webkit-scrollbar {
         width: 0px;
     }
+    padding-bottom: 5px;
 `
 
 export const InputArea = styled.div`

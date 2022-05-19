@@ -14,6 +14,7 @@ export const Login = () => {
 		try{
 			await googleLogin()			
 		} catch(error){
+			console.log('googleLogin error')
 			console.log(error)
 		}
 	}

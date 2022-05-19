@@ -35,7 +35,6 @@ export const AuthProvider = ({ children })=>{
 			if (user.uid){
 				const q  = query(collection(db, 'Usuarios'), where('uid', '==', user.uid)) 
 				const docs = await getDocs(q)
-				console.log(docs)
 				if (docs.docs.length === 0) {
 					const novoUsuario = {
 						uid: user.uid,

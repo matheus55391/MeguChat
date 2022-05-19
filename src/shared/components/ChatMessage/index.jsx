@@ -8,6 +8,7 @@ import {
 	serverTimestamp,
 	onSnapshot
 } from 'firebase/firestore'
+import { MessageCard } from '../MessageCard'
 
 export const ChatMessage = () => {
 	const messageInputRef = useRef()
@@ -28,11 +29,12 @@ export const ChatMessage = () => {
 					nome: usuario.displayName,
 					foto: usuario.photoURL
 				}
-				console.log(novaMensagem)
+
 				await addDoc(collection(db, 'Mensagens'), novaMensagem)
-				
+
 			}
 		} catch(error){
+			console.log('error!!!')
 			console.log(error)
 		}		
 	}
@@ -40,7 +42,7 @@ export const ChatMessage = () => {
 	useEffect(() => {
 		//collection(db, 'Mensagens'), orderBy('dataHora'), limit(20)
 		onSnapshot(queryMensagens, (querySnapshot)=>{
-			const listaDeMensagens = []
+			let listaDeMensagens = []
 			querySnapshot.forEach((doc) =>{
 				listaDeMensagens.push(doc.data())
 			})
@@ -51,17 +53,30 @@ export const ChatMessage = () => {
 
 	}, [])
 
+	
 	return(
 		<Container>
 			<MensagemArea>
 				{
+					
+					console.log(mensagensList )
+				}
+				{
+					
 					mensagensList.map((msg, key)=>{
+
+						const usuarioAutor = msg.uid === usuario.uid? true : false
+
 						return(
-							<div key={key}>
-								<div>{msg.nome}</div>
-								<div>{msg.texto}</div>
-								<br/>
-							</div>
+
+							<MessageCard 
+								key={key} 
+								nome={msg.nome} 
+								texto={msg.texto} 
+								usuarioAutor={usuarioAutor} 
+								foto={msg.foto} 
+								// dataHora={dataHota} 
+							/>
 						)
 
 					})
