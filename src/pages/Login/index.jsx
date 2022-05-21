@@ -32,6 +32,7 @@ export const Login = () => {
 	return(
 		<Container>
 			<LoginFormCard>
+				<div>Login</div>
 				<GoogleButton
 					label='Entrar com o Google'
 					onClick={handleGoogleLogin}
