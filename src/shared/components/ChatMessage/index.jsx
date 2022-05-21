@@ -50,7 +50,7 @@ export const ChatMessage = () => {
 			msgList = msgList.map((msg) => {
 				if(msg.dataHora){
 					var dh = msg.dataHora
-					dh = dh.toDate() * 1000
+					dh = dh.toDate()
 					dh = new Date(dh)
 					dh = dh.toLocaleTimeString()
 					return {...msg, dataHora: dh}	
