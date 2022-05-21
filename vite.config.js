@@ -8,6 +8,9 @@ export default defineConfig({
 	base: '/MeguChat/',
 	server: {
 	  host: true
-	}
+	},
+	build: {
+		chunkSizeWarningLimit: 1600,
+	},
 	
 })
