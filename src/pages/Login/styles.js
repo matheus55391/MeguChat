@@ -11,15 +11,15 @@ export const Container = styled.div`
 `
 
 export const LoginFormCard = styled.div`
-    max-width: 800px;
-    max-height: 600px;
-    padding: 10px 15px;
+    width: 400px;
+    height: 200px;
+    padding: 25px 15px;
     text-align: center;
     border: 1px ridge #d6d6d6;
     display: flex;
     flex-direction:column;
-
-
+    align-items: center;
+    justify-content: space-between;
 `
 
 // export const CardTitle = styled.h3`
