@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { Container, Deslogar } from './styles'
 import { useAuth } from '../../contexts/AuthContext'
 
 export const ChatInfo = () => {
@@ -6,13 +6,7 @@ export const ChatInfo = () => {
 	return(
 		<Container>
 			<h2>MeguChat</h2>
-			<button onClick={deslogar}>Deslogar</button>
-			<button>Tema</button>
-			{/* 
-				Nome do projeto 
-				LOGIN
-				TEMA SELECTOR
-			*/}
+			<Deslogar onClick={deslogar} title="Deslogar">SAIR</Deslogar>
 
 		</Container>
 	)

@@ -27,7 +27,8 @@ export const ChatMessage = () => {
 					dataHora: serverTimestamp(),
 					uid: usuario.uid,
 					nome: usuario.displayName,
-					foto: usuario.photoURL
+					foto: usuario.photoURL,
+					
 				}
 
 				await addDoc(collection(db, 'Mensagens'), novaMensagem)
@@ -41,15 +42,35 @@ export const ChatMessage = () => {
 
 	useEffect(() => {
 		//collection(db, 'Mensagens'), orderBy('dataHora'), limit(20)
-		onSnapshot(queryMensagens, (querySnapshot)=>{
-			let listaDeMensagens = []
-			querySnapshot.forEach((doc) =>{
-				listaDeMensagens.push(doc.data())
+		const unsub = onSnapshot(queryMensagens, (snapshot)=>{
+			let msgList = snapshot.docs.map((doc)=> ({ ...doc.data()}))
+			
+			
+
+			msgList = msgList.map((msg) => {
+				if(msg.dataHora){
+					var dh = msg.dataHora
+					dh = dh.toDate() * 1000
+					dh = new Date(dh)
+					dh = dh.toLocaleTimeString()
+					return {...msg, dataHora: dh}	
+				}
+
 			})
-			setMensagensList(listaDeMensagens)
+			try{
+				if( msgList[0] ) setMensagensList(msgList.reverse())	
+			} catch(error){
+				console.log(error)
+			}
+
+			//msgList = msgList.map((doc) => ({...doc, dataHora: new Date(doc.dataHora.toDate() * 1000).toLocaleTimeString()}))
+
+			//
+
+	
 
 		})
-
+		return unsub
 
 	}, [])
 
@@ -59,14 +80,8 @@ export const ChatMessage = () => {
 			<MensagemArea>
 				{
 					
-					console.log(mensagensList )
-				}
-				{
-					
 					mensagensList.map((msg, key)=>{
-
-						const usuarioAutor = msg.uid === usuario.uid? true : false
-
+						const usuarioAutor = msg.uid === usuario.uid? true : false						
 						return(
 
 							<MessageCard 
@@ -75,7 +90,7 @@ export const ChatMessage = () => {
 								texto={msg.texto} 
 								usuarioAutor={usuarioAutor} 
 								foto={msg.foto} 
-								// dataHora={dataHota} 
+								dataHora={msg.dataHora} 
 							/>
 						)
 

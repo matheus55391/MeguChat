@@ -21,7 +21,7 @@ export const MessageCard = (props) => {
 			<MensagemCard msgAutor={props.usuarioAutor}>
 				<Nome/>
 				<Texto>{props.texto}</Texto>
-				{/* <Horario>{props.dataHora || '' }</Horario> */}
+				<Horario>{props.dataHora}</Horario>
 			</MensagemCard>
 		</MensagemRow>
 

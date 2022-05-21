@@ -6,16 +6,16 @@ export const AppRoutes = () => {
 	const { usuario } = useAuth()
 
 	const PrivateRoute = () =>{
-		return usuario ? <Outlet /> : <Navigate to="/chat/login" />
+		return usuario ? <Outlet /> : <Navigate to="/MeguChat/login" />
 	}
 
 	return (
 		<Routes>			
-			<Route path='/chat/login' element={<Login/>}/>
+			<Route path='/MeguChat/login' element={<Login/>}/>
 			<Route element={<PrivateRoute/>}>
-				<Route path='/chat/' element={<Chat/>}/>
+				<Route path='/MeguChat/chat' element={<Chat/>}/>
 			</Route>
-			<Route path='*' element={<Navigate to="/chat/login" />}/>
+			<Route path='*' element={<Navigate to="/MeguChat/login" />}/>
 		</Routes>
 	)
 }

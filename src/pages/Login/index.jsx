@@ -12,6 +12,7 @@ export const Login = () => {
 
 	const handleGoogleLogin = async ()=>{
 		try{
+
 			await googleLogin()			
 		} catch(error){
 			console.log('googleLogin error')
@@ -20,7 +21,12 @@ export const Login = () => {
 	}
 	
 	useEffect(()=>{	
-		if(usuario) navigate('/chat/')
+		if(usuario){
+			navigate('/MeguChat/chat')
+		} else {
+			navigate('/MeguChat/login')
+		}
+		
 	}, [usuario])
 
 	return(

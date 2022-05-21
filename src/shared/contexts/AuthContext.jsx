@@ -26,8 +26,11 @@ export const useAuth = () => {
 export const AuthProvider = ({ children })=>{
 	// eslint-disable-next-line no-unused-vars
 	const [usuario, setUsuario] = useState() 
+	const [error, setError] = useState()
+	const [carregando, setCarregando] = useState(false)
 
 	const googleLogin = async () => {
+		setCarregando(true)
 		try{
 			
 			const res = await signInWithPopup(auth, googleAuthProvider)
@@ -46,8 +49,10 @@ export const AuthProvider = ({ children })=>{
 				}
 			}	
 		} catch(error){
+			setError(error)
 			console.log(error.message)
 		}
+		setCarregando(false)
 	}
 
 	const deslogar = () => {
@@ -66,6 +71,8 @@ export const AuthProvider = ({ children })=>{
 
 	const value = {
 		usuario,
+		error,
+		carregando,
 		googleLogin,
 		deslogar
 	}
