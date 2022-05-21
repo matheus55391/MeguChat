@@ -10,9 +10,9 @@ export const AppRoutes = () => {
 	}
 	return (
 		<Routes>			
+			<Route path='*' element={<Login/>}/>
 			<Route path='/MeguChat/login' element={<Login/>}/>
 			<Route path='/MeguChat/chat' element={<RenderChat/>}/>
-			<Route path='*' element={<Navigate to="/MeguChat/login" />}/>
 		</Routes>
 	)
 }

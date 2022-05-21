@@ -1,4 +1,4 @@
-import { HashRouter  } from 'react-router-dom'
+import { HashRouter as Router  } from 'react-router-dom'
 import { GlobalStyle } from './GlobalStyle'
 import { AppRoutes } from './routes'
 import { AuthProvider } from './shared/contexts/AuthContext'
@@ -6,13 +6,13 @@ import { AuthProvider } from './shared/contexts/AuthContext'
 function App() {
 
 	return (
-		<HashRouter basename='/MeguChat'>
+		<Router >
 			<AuthProvider>
 				<AppRoutes/>
 			</AuthProvider>
 
 			<GlobalStyle/>
-		</HashRouter>
+		</Router>
 	)
 }
 
