@@ -5,11 +5,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
-
     "build": "tsc && vite build",
-
     "preview": "vite preview",
-
     "deploy": "tsc && vite build && gh-pages -d dist"
   },
   "dependencies": {
