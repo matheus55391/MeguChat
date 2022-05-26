@@ -16,7 +16,7 @@ export const MensagemCard = styled.div`
     border-radius: 10px;
     box-shadow: 0px 0px 10px -5px #000000;
     background-color:  ${(props) => props.msgAutor? '#DCF8C6': '#FFFFFF'};
-    max-width: 400px;
+    max-width: 350px;
     min-width: 100px;
     
 `
@@ -31,6 +31,7 @@ export const Autor = styled.div`
 export const Texto = styled.p`
     padding-top: 5px;
     word-wrap:break-word;
+    word-break: break-all;
 `
 
 export const Horario = styled.div`

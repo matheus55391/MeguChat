@@ -1,45 +1,57 @@
+import GoogleButton from 'react-google-button'
 import styled from 'styled-components'
-
 export const Container = styled.div`
-    //aling card into center 
-    display:flex;
-    flex-direction:column;
-    height: 100%;
-    align-items: center;
+    display: flex;
+
+    width: 100%;
     justify-content: center;
+    padding: 30px;
+    @media (max-width:960px){
+        height: 100%;
+        flex-direction: column;
+    }
+
+
+`
+
+export const LoginRow = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 50%;
+    @media (max-width:960px){
+        margin: auto;
+        margin-top: 30%;
+        padding: 10px;
+        width: 100%;
+    }
+    text-align: center;
+`
+
+export const Titulo = styled.h1`
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
+    color: #333;
     
 `
+export const Descricao = styled.p`
 
-export const LoginFormCard = styled.div`
-    width: 400px;
-    height: 200px;
-    padding: 25px 15px;
-    text-align: center;
-    border: 1px ridge #d6d6d6;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: space-between;
+    font-size: 18px;
+    color: #333;
+
 `
 
-// export const CardTitle = styled.h3`
-//     margin-bottom: 1em;
+export const ButtonGoogle = styled(GoogleButton)`
+    margin: auto;
+    margin-top: 20px;
 
-// `
-
-// export const FormInput = styled.input`
-//     margin-bottom: 1em;
-//     border: 1px ridge #d6d6d6;
-
-// `
-
-// export const FormButton = styled.button`
-//     margin-bottom: 1em;
-//     border: 1px ridge #d6d6d6;
-//     cursor: pointer;
-
-// `
-
-// export const GoogleLoginButton = styled.button`
-
-// `
+`	
+export const ButtonGit = styled.a`
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    text-align: center;
+    padding: 25px;
+`

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Container, MensagemArea, InputArea, Input, EmojiButton, SandButton } from './styles'
+import { Container, MensagemArea, InputArea, Input, EmojiButton, SandButton, EmojiBox } from './styles'
 import { useAuth } from '../../contexts/AuthContext'
 import { db, queryMensagens } from '../../services/firebase-config'
 import { 	
@@ -9,11 +9,13 @@ import {
 	onSnapshot
 } from 'firebase/firestore'
 import { MessageCard } from '../MessageCard'
+import Picker from 'emoji-picker-react'
 
 export const ChatMessage = () => {
 	const messageInputRef = useRef()
-	const [mensagensList, setMensagensList] = useState([])
+	const [ mensagensList, setMensagensList] = useState([])
 	const { usuario } = useAuth()
+	const [ emojiArea, setEmojiArea ] = useState(false)
 
 	const handleEnviarMensagem = async () =>{
 		try{			
@@ -30,9 +32,7 @@ export const ChatMessage = () => {
 					foto: usuario.photoURL,
 					
 				}
-
 				await addDoc(collection(db, 'Mensagens'), novaMensagem)
-
 			}
 		} catch(error){
 			console.log('error!!!')
@@ -41,16 +41,16 @@ export const ChatMessage = () => {
 	}
 
 	useEffect(() => {
-		//collection(db, 'Mensagens'), orderBy('dataHora'), limit(20)
 		const unsub = onSnapshot(queryMensagens, (snapshot)=>{
-			let msgList = snapshot.docs.map((doc)=> ({ ...doc.data()}))
-			
-			
+			let msgList = snapshot.docs.map((doc)=> ({ ...doc.data()}))		
 
 			msgList = msgList.map((msg) => {
 				if(msg.dataHora){
 					var dh = msg.dataHora
 					dh = dh.toDate()
+					var data = new Date()
+					console.log(data , 'ói')
+					console.log(dh)
 					dh = new Date(dh)
 					dh = dh.toLocaleTimeString()
 					return {...msg, dataHora: dh}	
@@ -62,12 +62,6 @@ export const ChatMessage = () => {
 			} catch(error){
 				console.log(error)
 			}
-
-			//msgList = msgList.map((doc) => ({...doc, dataHora: new Date(doc.dataHora.toDate() * 1000).toLocaleTimeString()}))
-
-			//
-
-	
 
 		})
 		return unsub
@@ -96,14 +90,45 @@ export const ChatMessage = () => {
 
 					})
 				}
+				<EmojiBox
+					emojiArea = {emojiArea}
+				>
+
+					<Picker 
+						onEmojiClick = {
+							(event, emojiObject)=>{
+								messageInputRef.current.value = messageInputRef.current.value + emojiObject.emoji
+							}
+						}
+						pickerStyle={{
+							width: '100%'
+						}}
+						groupVisibility={{
+							flags: false,
+						}}
+						disableSearchBar="true"
+					/>
+				</EmojiBox>
+
 			</MensagemArea>
 
 			<InputArea>
-				<EmojiButton />
+
+				<EmojiButton 
+					emojiArea = {emojiArea}
+					onClick={()=>{
+						setEmojiArea(emojiArea? false : true)
+					}}
+				/>
 				<Input 
 					type="text" 
 					placeholder="Digite a sua mensagem..."
 					ref={messageInputRef}	
+					onKeyPress={e=>{
+						if(e.key === 'Enter'){
+							handleEnviarMensagem()
+						}						
+					}}
 				/>
 				<SandButton
 					onClick={handleEnviarMensagem}

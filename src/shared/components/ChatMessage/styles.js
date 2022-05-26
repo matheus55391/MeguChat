@@ -25,11 +25,21 @@ export const MensagemArea = styled(ScrollableFeed)`
 export const InputArea = styled.div`
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: 60px;
     background-color: #F0F2F5;
     align-items: center;
     justify-content:center;
     padding: 5px 10px;    
+
+    @media (max-width:960px){
+        position: fixed;
+        height: 50px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+    }
+
 
 `
 export const Input = styled.input`
@@ -50,7 +60,7 @@ export const Input = styled.input`
 export const EmojiButton = styled(EmojiHand)`
     width: 35px;
     margin: 0px 15px 0px 0px ;
-    color: gray;
+    color: ${props => props.emojiArea? 'black' : 'gray'};
     :hover{
         color: black;
     }
@@ -66,4 +76,8 @@ export const SandButton = styled(PaperPlane)`
     }
     cursor: pointer;
     
+`
+export const EmojiBox = styled.div`
+    width: 100%;
+    display: ${props => props.emojiArea? 'flex' : 'none'};;
 `
