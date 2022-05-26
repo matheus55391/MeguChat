@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 `
 
-export const Deslogar = styled.button`
+export const SingOutButton = styled.button`
     margin-left:  auto;
     height: 100%;
     min-width: 80px;

@@ -25,56 +25,55 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children })=>{
 	// eslint-disable-next-line no-unused-vars
-	const [usuario, setUsuario] = useState() 
-	const [error, setError] = useState()
-	const [carregando, setCarregando] = useState(false)
+	const [User, setUser] = useState() 
+	const [Error, setError] = useState(null)
+	const [Loading, setLoading] = useState(false)
 
-	const googleLogin = async () => {
-		setCarregando(true)
+	const GoogleSingIn = async () => {
+		setLoading(true)
 		try{
 			
 			const res = await signInWithPopup(auth, googleAuthProvider)
-			const user = res.user
-			if (user.uid){
-				const q  = query(collection(db, 'Usuarios'), where('uid', '==', user.uid)) 
+			if (res.user.uid){
+				const q  = query(collection(db, 'Users'), where('uid', '==', res.user.uid)) 
 				const docs = await getDocs(q)
 				if (docs.docs.length === 0) {
-					const novoUsuario = {
-						uid: user.uid,
-						nameCompleto: user.displayName,
-						tipoConta: 'google',
-						email: user.email
+					const newUser = {
+						uid: res.user.uid,
+						fullName: res.user.displayName,
+						accountType: 'google',
+						email: res.user.email
 					}
-					await addDoc(collection(db, 'Usuarios'), novoUsuario)
+					await addDoc(collection(db, 'Users'), newUser)
 				}
 			}	
 		} catch(error){
 			setError(error)
 			console.log(error.message)
 		}
-		setCarregando(false)
+		setLoading(false)
 	}
 
-	const deslogar = () => {
+	const SingOut = () => {
 		signOut(auth)
 	}
 	
 	useEffect(() => {
-		const deslogando = onAuthStateChanged(auth, currentUser=>{
-			setUsuario(currentUser)
+		const singOut = onAuthStateChanged(auth, currentUser=>{
+			setUser(currentUser)
 		})
 		return () => {
-			deslogando()
+			singOut()
 		}
 		
 	}, [])
 
 	const value = {
-		usuario,
-		error,
-		carregando,
-		googleLogin,
-		deslogar
+		User,
+		Error,
+		Loading,
+		GoogleSingIn,
+		SingOut
 	}
 	
 	return (

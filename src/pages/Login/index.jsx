@@ -1,62 +1,53 @@
 // import { useRef } from 'react'
-import { Container, LoginRow, Titulo, Descricao, ButtonGoogle, ButtonGit } from './styles'
+import { Container, LoginRow, ButtonGoogle, ButtonGit, Title, Description } from './styles'
 import { useAuth } from '../../shared/contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
 export const Login = () => {
 	const navigate = useNavigate()
-	const { usuario, googleLogin } = useAuth()
+	const { User, GoogleSingIn } = useAuth()
 
 	const handleGoogleLogin = async ()=>{
 		try{
-			await googleLogin()			
+			await GoogleSingIn()			
 		} catch(error){
-			console.log('googleLogin error')
-			console.log(error)
+			console.log('GoogleSingIn error: ' + error)
+			
 		}
 	}
 	
 	useEffect(()=>{	
-		if(usuario){
+		if(User){
 			navigate('/MeguChat/chat')
 		} else {
 			navigate('/MeguChat/login')
 		}
 		
-	}, [usuario])
+	}, [User])
 
 	return(
-		<>
-		
+		<>		
 			<Container>
 				<LoginRow>
-					<Titulo>
-					MeguChat
-					</Titulo>
-					<Descricao>
-					Um chat em tempo real feito com React.js + FireStore.
-					</Descricao>
+					<Title>
+						MeguChat
+					</Title>
+					<Description>
+						Um chat em tempo real feito com React.js + FireStore.
+					</Description>
 
 					<ButtonGoogle
-
 						label='Entrar com o Google'
 						onClick={handleGoogleLogin}
 						type='light' //dark light
 					/>
-
-
-
-				</LoginRow>
-
-				{/* onClick={handleGoogleLogin} */}
-
-			
+				</LoginRow>			
 			</Container>
 			<ButtonGit
 				href="https://github.com/matheus55391/MeguChat" target="_blank"
 			>
-					Visite o repositorio no github.
+				Visite o repositorio no github.
 			</ButtonGit>
 		</>
 	)

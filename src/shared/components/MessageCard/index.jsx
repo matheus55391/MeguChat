@@ -1,31 +1,28 @@
 /* eslint-disable react/prop-types */
-import { MensagemCard, MensagemRow, Autor, Texto, Horario } from './styles'
+import { MessageRow, CardMessage, Owner, Text, Time } from './styles'
 import stc from 'string-to-color'
 
 export const MessageCard = (props) => {
 
-	const Nome = ()=>{
-
-		if(!props.usuarioAutor) {
-			const cor = stc(props.nome)
+	const Name = ()=>{
+		
+		if(!props.owner) {
+			const color = stc(props.name)
 			return(
-				<Autor cor = {cor}>{props.nome}</Autor>
+				<Owner color = {color}>{props.name}</Owner>
 			)	
 		}
-		
-
 	}
 
 	return(
 
-		<MensagemRow msgAutor={props.usuarioAutor}>
-
-			<MensagemCard msgAutor={props.usuarioAutor}>
-				<Nome/>
-				<Texto>{props.texto}</Texto>
-				<Horario>{props.dataHora.substring(0, 5)}</Horario>
-			</MensagemCard>
-		</MensagemRow>
+		<MessageRow owner={props.owner}>
+			<CardMessage owner={props.owner}>
+				<Name/>
+				<Text>{props.text}</Text>
+				<Time>{props.dateTime.substring(0, 5)}</Time>
+			</CardMessage>
+		</MessageRow>
 
 	)
 

@@ -16,5 +16,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const db = getFirebaseFireStore(app)
-const queryMensagens = query(collection(db, 'Mensagens'), orderBy('dataHora', 'desc'), limit(20))
-export { auth , db, queryMensagens}
+const queryMessages = query(collection(db, 'Messages'), orderBy('dateTime', 'desc'), limit(20))
+export { auth , db, queryMessages}

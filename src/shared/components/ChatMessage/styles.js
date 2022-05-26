@@ -9,9 +9,10 @@ export const Container = styled.div`
     flex-direction: column;    
     justify-content:space-between;
     border-left: 2px solid rgba(28,110,164,0.45);
+    height: 100%;
 `
 
-export const MensagemArea = styled(ScrollableFeed)`
+export const MessageArea = styled(ScrollableFeed)`
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 46px - 68px);
@@ -22,6 +23,16 @@ export const MensagemArea = styled(ScrollableFeed)`
     padding-bottom: 5px;
 `
 
+export const EmojiBox = styled.div`
+    width: 100%;
+    display: ${props => props.emojiArea? 'flex' : 'none'};;
+    margin: auto;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 61px;
+
+`
+
 export const InputArea = styled.div`
     display: flex;
     flex-direction: row;
@@ -30,7 +41,7 @@ export const InputArea = styled.div`
     align-items: center;
     justify-content:center;
     padding: 5px 10px;    
-
+    min-height:60px;
     @media (max-width:960px){
         position: fixed;
         height: 50px;
@@ -67,7 +78,7 @@ export const EmojiButton = styled(EmojiHand)`
     cursor: pointer;
 `
 
-export const SandButton = styled(PaperPlane)`
+export const SendButton = styled(PaperPlane)`
     width: 30px;
     margin: 0px 5px 0px 10px ;
     color: gray;
@@ -76,8 +87,4 @@ export const SandButton = styled(PaperPlane)`
     }
     cursor: pointer;
     
-`
-export const EmojiBox = styled.div`
-    width: 100%;
-    display: ${props => props.emojiArea? 'flex' : 'none'};;
 `

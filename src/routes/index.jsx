@@ -4,9 +4,9 @@ import { useAuth } from '../shared/contexts/AuthContext'
 
 
 export const AppRoutes = () => {
-	const { usuario } = useAuth()
+	const { User } = useAuth()
 	const RenderChat = () =>{
-		return usuario? <Chat/> : <Navigate to="/MeguChat/login" />
+		return User? <Chat/> : <Navigate to="/MeguChat/login" />
 	}
 	return (
 		<Routes>			

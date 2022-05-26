@@ -20,4 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --color-1: white;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `

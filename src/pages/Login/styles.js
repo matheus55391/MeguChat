@@ -11,7 +11,6 @@ export const Container = styled.div`
         flex-direction: column;
     }
 
-
 `
 
 export const LoginRow = styled.div`
@@ -28,7 +27,7 @@ export const LoginRow = styled.div`
     text-align: center;
 `
 
-export const Titulo = styled.h1`
+export const Title = styled.h1`
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -36,7 +35,7 @@ export const Titulo = styled.h1`
     color: #333;
     
 `
-export const Descricao = styled.p`
+export const Description = styled.p`
 
     font-size: 18px;
     color: #333;
