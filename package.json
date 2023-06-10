@@ -1,36 +1,25 @@
 {
   "name": "meguchat",
+  "version": "0.1.0",
   "private": true,
-  "homepage": "https://matheus55391.github.io/MeguChat",
-  "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "deploy": "tsc && vite build && gh-pages -d dist"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "emoji-picker-react": "^3.5.1",
-    "firebase": "^9.8.1",
-    "npm": "^8.10.0",
-    "radium": "^0.26.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-firebase-hooks": "^5.0.3",
-    "react-google-button": "^0.7.2",
-    "react-router-dom": "^6.3.0",
-    "react-scrollable-feed": "^1.3.1",
-    "string-to-color": "^2.2.2",
-    "styled-components": "^5.3.5",
-    "styled-icons": "^10.45.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^1.3.0",
-    "eslint": "^8.15.0",
-    "eslint-plugin-react": "^7.29.4",
-    "gh-pages": "^4.0.0",
-    "vite": "^2.9.7"
+    "@types/node": "20.2.5",
+    "@types/react": "18.2.9",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.4",
+    "next": "13.4.4",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.3"
   }
 }
