@@ -1,6 +1,9 @@
+import Drawer from "./base/Drawer";
+
 function ChatArea() {
     return (
         <section className="flex flex-col flex-1 bg-white shadow-lg">
+            <Drawer open={true}/>
             {/* Cabeçalho */}
             <header className="flex items-center justify-between px-6 py-4 border-b">
                 <h1 className="text-xl font-bold">WhatsApp Chat</h1>
