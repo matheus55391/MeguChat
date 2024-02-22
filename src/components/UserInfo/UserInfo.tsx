@@ -1,7 +1,9 @@
-import { faker } from "@faker-js/faker"
-import { HiOutlineDotsHorizontal } from "react-icons/hi"
 
-const UserProfileCard = () => {
+import { faker } from "@faker-js/faker";
+import React from 'react';
+import { HiOutlineDotsHorizontal } from 'react-icons/hi';
+
+const UserInfo: React.FC = () => {
     return (
         <div className="flex flex-row p-4 px-10 items-center justify-between">
             <div className="flex flex-row space-x-2">
@@ -13,7 +15,7 @@ const UserProfileCard = () => {
             </div>
             <HiOutlineDotsHorizontal className="w-6 h-6" />
         </div>
-    )
+    );
 }
 
-export default UserProfileCard
+export default UserInfo;

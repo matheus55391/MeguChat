@@ -1,17 +1,18 @@
-import Title from "@/components/Title";
-import UserProfileCard from "@/components/UserProfileCard";
+import ConversationsSidebar from "@/components/ConversationsSidebar";
 import { faker } from "@faker-js/faker";
 import { BsImage } from "react-icons/bs";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import { HiMiniArrowSmallRight, HiOutlineGif } from "react-icons/hi2";
 import { LuSmile } from "react-icons/lu";
 
 
 export default function Home() {
+
   return (
     <main className="flex flex-row h-screen">
-      <div className="bg-slate-50 h-full flex flex-col">
-        <Title/>
+      <ConversationsSidebar/>
+      {/* <div className="bg-slate-50 h-full flex flex-col">
+        <h1 className="text-4xl font-bold p-4 ">MeguChat</h1>
+
 
         <div className="flex flex-col p-4  mt-16 h-full">
           <h1 className="text-2xl font-bold ">Messages</h1>
@@ -72,9 +73,20 @@ export default function Home() {
 
         </div>
 
-        <UserProfileCard/>
+        <div className="flex flex-row p-4 px-10 items-center justify-between">
+          <div className="flex flex-row space-x-2">
+            <div className="flex min-h-12 min-w-12 max-w-12  bg-blue-600 rounded-full" />
+            <div className="flex flex-col">
+              <p className="text-base font-semibold">{faker.person.firstName()}</p>
+              <p className="text-sm ">@{faker.person.firstName()}</p>
+            </div>
+          </div>
+          <HiOutlineDotsHorizontal className="w-6 h-6" />
+        </div>
+      </div> */}
 
-      </div>
+{/* rarar */}
+
       <div className="flex flex-col w-full">
         <div className=" flex flex-row p-4 space-x-2 border-b-2 border-gray-100 w-full px-6">
           <div className="min-h-12 min-w-12 bg-blue-500 rounded-full" />
