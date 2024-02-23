@@ -8,86 +8,11 @@ import { LuSmile } from "react-icons/lu";
 export default function Home() {
 
   return (
-    <main className="flex flex-row h-screen">
-      <ConversationsSidebar/>
-      {/* <div className="bg-slate-50 h-full flex flex-col">
-        <h1 className="text-4xl font-bold p-4 ">MeguChat</h1>
+    <main className="flex flex-row h-[100dvh]">
+      <ConversationsSidebar />
 
 
-        <div className="flex flex-col p-4  mt-16 h-full">
-          <h1 className="text-2xl font-bold ">Messages</h1>
-
-          <div className="flex p-2 items-center space-x-2 border-2 border-gray-300 rounded-full mt-6 px-4">
-            <FaMagnifyingGlass className="h-5 w-5 text-gray-400" />
-            <input type="text" className="bg-transparent" placeholder="Search people or message" />
-          </div>
-
-
-          <div className="flex flex-col space-y-6 mt-10   ">
-            <div className="flex flex-row space-x-2">
-              <div className="flex min-h-12 min-w-12 bg-blue-600 rounded-full" />
-              <div className="flex flex-col w-full">
-                <div className="flex flex-row items-center justify-between space-x-2 w-full" >
-                  <div className="flex flex-row items-center space-x-2">
-                    <p className="text-lg font-bold text-black">{faker.person.firstName()}</p>
-                    <p className="text-sm  text-black">@{faker.person.firstName()}</p>
-                  </div>
-
-                  <p className="text-[9px]  text-black">Dec 15</p>
-                </div>
-
-                <p className="text-sm text-black">Bom dia familia neto</p>
-              </div>
-            </div>
-            <div className="flex flex-row space-x-2">
-              <div className="flex min-h-12 min-w-12 bg-blue-600 rounded-full" />
-              <div className="flex flex-col w-full">
-                <div className="flex flex-row items-center justify-between space-x-2 w-full ">
-                  <div className="flex flex-row items-center space-x-2">
-                    <p className="text-lg font-bold text-black">{faker.person.firstName()}</p>
-                    <p className="text-sm  text-black">@{faker.person.firstName()}</p>
-                  </div>
-
-                  <p className="text-[9px]  text-black">Dec 15</p>
-                </div>
-
-                <p className="text-sm text-black">Bom dia familia neto</p>
-              </div>
-            </div>
-            <div className="flex flex-row space-x-2">
-              <div className="flex min-h-12 min-w-12 bg-blue-600 rounded-full" />
-              <div className="flex flex-col w-full">
-                <div className="flex flex-row items-center justify-between space-x-2 w-full ">
-                  <div className="flex flex-row items-center space-x-2">
-                    <p className="text-lg font-bold text-black">{faker.person.firstName()}</p>
-                    <p className="text-sm  text-black">@{faker.person.firstName()}</p>
-                  </div>
-
-                  <p className="text-[9px]  text-black">Dec 15</p>
-                </div>
-
-                <p className="text-sm text-black">Bom dia familia neto</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="flex flex-row p-4 px-10 items-center justify-between">
-          <div className="flex flex-row space-x-2">
-            <div className="flex min-h-12 min-w-12 max-w-12  bg-blue-600 rounded-full" />
-            <div className="flex flex-col">
-              <p className="text-base font-semibold">{faker.person.firstName()}</p>
-              <p className="text-sm ">@{faker.person.firstName()}</p>
-            </div>
-          </div>
-          <HiOutlineDotsHorizontal className="w-6 h-6" />
-        </div>
-      </div> */}
-
-{/* rarar */}
-
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full ">
         <div className=" flex flex-row p-4 space-x-2 border-b-2 border-gray-100 w-full px-6">
           <div className="min-h-12 min-w-12 bg-blue-500 rounded-full" />
           <div className="flex flex-col">
@@ -96,19 +21,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col h-full overflow-hidden space-y-2 p-4">
+        <div className="flex flex-col h-full overflow-scroll  space-y-2 p-4">
           <div className="flex flex-row space-x-4">
-            <div className="min-h-12 min-w-12 bg-blue-500 rounded-full mt-auto mb-8 " />
+            <div className="min-h-12 min-w-12 bg-blue-500 rounded-full mt-auto mb-8 hidden sm:flex" />
             <div className="flex flex-col space-y-2 ">
 
-              <div className="px-8 mr-auto flex flex-row p-4 space-x-2 bg-gray-200 text-black w-[60%] rounded-2xl ">
+              <div className="px-8 mr-auto flex flex-row p-4 space-x-2 bg-gray-200 text-black  sm:w-[60%] rounded-2xl ">
                 next time youll be awake at this hour why not now
               </div>
-              <div className="px-8 mr-auto flex flex-row p-4 space-x-2 bg-gray-200 text-black w-[60%] rounded-2xl ">
+              <div className="px-8 mr-auto flex flex-row p-4 space-x-2 bg-gray-200 text-black  sm:w-[60%] rounded-2xl ">
                 {"Didn't I tell you not to put your phone on charge just because it's the weekend?"}
 
               </div>
-              <div className="px-8 mr-auto flex flex-row p-4 space-x-2 bg-gray-200 text-black  rounded-2xl text-2xl ">
+              <div className="px-8 mr-auto flex flex-row p-4 space-x-2 bg-gray-200 text-black  sm:w-[60%] rounded-2xl ">
                 🥺🥺🥺
               </div>
               <p className="text-xs">Sat 5:10 AM</p>
@@ -117,13 +42,13 @@ export default function Home() {
 
           </div>
 
-          <div className="px-8 ml-auto flex flex-row p-4 space-x-2 bg-green-500 text-white w-[60%] rounded-2xl ">
+          <div className="px-8 ml-auto flex flex-row p-4 space-x-2 bg-green-500 text-white w-[80%] sm:w-[60%] rounded-2xl ">
             i woke up calmnnn i put it on the charger the phone was
             turned off next to me i took it out while i was sleeping hsadfkagshdfgsajf
             i slept early girl i slept at 3
           </div>
 
-          <div className="px-8 ml-auto  flex flex-row p-4 space-x-2 bg-green-500 text-white w-[60%] rounded-2xl ">
+          <div className="px-8 ml-auto  flex flex-row p-4 space-x-2 bg-green-500 text-white w-[80%] sm:w-[60%]  rounded-2xl ">
             While you win in love, you continue to win in other things
             dhdhdhdh
           </div>
