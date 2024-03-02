@@ -8,7 +8,7 @@ const Home = () => {
  
   const handleLogin = () => {
    
-    router.push('?teste=1');
+    router.push('/chat/1');
   };
 
   return (
