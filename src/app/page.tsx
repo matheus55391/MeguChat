@@ -1,81 +1,62 @@
-'use client'
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
-import React from "react";
+'use client';
+import { useRouter } from 'next/navigation';
+import React from 'react';
 
-export default function Home() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const router = useRouter()
 
-  const handleOpen = () => {
-    onOpen();
-  }
-
-  const onLogin = () => {
-    router.push('/chat')
-  }
+const Home = () => {
+  const router = useRouter();
+ 
+  const handleLogin = () => {
+   
+    router.push('?teste=1');
+  };
 
   return (
-    <main className="flex flex-col h-[100vh] items-start justify-center space-y-6 p-8">
-      <h1 className="text-4xl font-bold"></h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="flex flex-col bg-white p-8 shadow-md rounded-md w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-4">Bem-vindo ao MeguChat</h1>
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold">Welcome to <span className="text-3xl font-bold text-blue-400">MeguChat!</span></h2>
-        <p className="text-lg font-medium">
-          It looks like you don’t have a message selected. Choose an existing message or start a new conversation.
-        </p>
+        <div className="mb-4">
+          <label className="block text-gray-600">Email:</label>
+          <input
+            type="email"
+            className="w-full p-2 border border-gray-300 rounded"
+
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-600">Senha:</label>
+          <input
+            type="password"
+            className="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
+
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          onClick={handleLogin}
+        >
+          Entrar
+        </button>
+
+        <div className="flex flex-col space-y-2 mt-4">
+          <p className="text-gray-600">Ou entre com:</p>
+          <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+            Google
+          </button>
+          <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">
+            Github
+          </button>
+        </div>
+
+        <div className=" text-center mt-4">
+          <p className="text-gray-600">Ainda não tem uma conta?</p>
+          <a className="text-blue-500 hover:underline">Cadastre-se</a>
+        </div>
       </div>
-
-      <Button color="primary" className="rounded-full px-8" onClick={handleOpen}>
-        Start Chat
-      </Button>
-      <Modal
-        size={'md'}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">Login</ModalHeader>
-              <ModalBody>
-                <form>
-                  <div className="mb-4">
-                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-                      Username:
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      name="username"
-                      className="mt-1 p-2 w-full border rounded-md"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                      Password:
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      className="mt-1 p-2 w-full border rounded-md"
-                    />
-                  </div>
-                </form>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onLogin}>
-                  Login
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </main>
+    </div>
   );
-}
+};
+
+export default Home;
