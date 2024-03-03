@@ -76,7 +76,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
             <MainChatArea>
 
                 <ChatHeader>
-                    <h1 className="text-2xl font-bold">{
+                    <h1 className="text-2xl font-bold dark:text-white">{
                         ChatsMock.find(chat => chat.id === selectedId)?.title
                     }</h1>
                 </ChatHeader>
@@ -96,24 +96,24 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
                 </div>
 
 
-                <div className="flex flex-row bg-zinc-50 items-center p-4 px-2 space-x-2 " >
+                <div className="flex flex-row bg-zinc-50 items-center p-4 px-2 space-x-2 dark:bg-zinc-900  " >
                     {/* <div className="flex flex-row space-x-2 items-center">
                         <BsImage className="w-6 h-6 text-green-400" />
                         <HiOutlineGif className="w-7 h-7 text-green-400" />
                     </div> */}
-                    <div className="flex flex-1 items-center border-2 p-2 space-x-2 rounded-xl">
+                    <div className="flex flex-1 items-center border-2 p-2 space-x-2 rounded-xl dark:border-zinc-700">
                         <textarea
                             value={newMessage}
                             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setNewMessage(e.target.value)}
                             ref={textAreaRef}
                             placeholder="Type a message"
-                            className="p-1 flex-1 bg-transparent focus:outline-none overflow-x-hidden overflow-y-auto resize-none no-scrollbar"
+                            className="p-1 flex-1 bg-transparent focus:outline-none overflow-x-hidden overflow-y-auto resize-none no-scrollbar dark:text-white"
                             rows={1}
                         />
                         <LuSmile className="w-6 h-6 text-green-400" />
                     </div>
-                    <button className='h-12 w-12 flex items-center justify-center bg-green-400 rounded-lg hover:bg-green-500 focus:outline-none  active:bg-green-600'>
-                        <HiMiniArrowSmallRight className="w-9 h-9 text-white " onClick={sendMessage} />
+                    <button className='h-12 w-12 flex items-center justify-center bg-green-400 rounded-lg hover:bg-green-500 focus:outline-none  active:bg-green-600 dark:bg-green-600'>
+                        <HiMiniArrowSmallRight className="w-9 h-9 text-white dark:text-black " onClick={sendMessage} />
                     </button>
                 </div>
 

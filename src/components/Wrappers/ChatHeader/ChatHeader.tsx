@@ -6,7 +6,7 @@ interface ChatHeaderProps {
 
 const ChatHeader: React.FC<ChatHeaderProps> = ({ children }) => {
     return(
-        <div className="bg-white p-4 ">
+        <div className="bg-white p-4 dark:bg-zinc-900 ">
             {children}
         </div>
     )
