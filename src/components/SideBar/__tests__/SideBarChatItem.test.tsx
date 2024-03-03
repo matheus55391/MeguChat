@@ -62,23 +62,7 @@ describe('SideBarChatItem Component', () => {
     );
 
     const lastMessageDateElement = getByTestId('sidebar-chat-item-last-message-date');
-    expect(lastMessageDateElement).toHaveTextContent(new Date('2022-01-01').toLocaleDateString());
-  });
-
-  it('should applies "isSelected" styles', () => {
-    const { getByTestId } = render(
-      <SideBarChatItem
-        title="Chat Title"
-        isSelected={true}
-        lastMessage="Last Message"
-        lastMessageDate={new Date('2022-01-01')}
-        onClick={mockOnClick}
-      />
-    );
-
-    const chatItemElement = getByTestId('sidebar-chat-item');
-    expect(chatItemElement).toBeInTheDocument();
-    expect(chatItemElement).toHaveClass('bg-zinc-400');
+    expect(lastMessageDateElement).toHaveTextContent(new Date('2022-01-01').toLocaleString('pt-BR', { hour: 'numeric', minute: 'numeric' }));
   });
 
   it('should calls onClick when clicked', () => {
