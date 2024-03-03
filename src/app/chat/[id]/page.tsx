@@ -22,6 +22,7 @@ enum MessageSender {
 interface Message {
     content: string;
     sender: MessageSender;
+    date: Date;
 }
 
 const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
@@ -32,7 +33,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
     const sendMessage = () => {
 
         if (newMessage.trim() !== '') {
-            const newMessageObj: Message = { content: newMessage, sender: MessageSender.User };
+            const newMessageObj: Message = { content: newMessage, sender: MessageSender.User, date: new Date() };
             setMessages([...messages, newMessageObj]);
             setNewMessage('');
         }
@@ -81,15 +82,18 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
                     }</h1>
                 </ChatHeader>
 
-                <div className="flex flex-col h-full  p-4 overflow-y-scroll space-y-2 ">
+                <div className="flex flex-col h-full  p-4 overflow-y-scroll space-y-2  no-scrollbar">
 
                     {messages.map((message, index) => (
                         <div
                             key={index}
-                            className={`bg-slate-400 p-2  ${message.sender === MessageSender.User ? 'ml-auto' : 'mr-auto '} rounded-2xl flex ${message.sender === MessageSender.User ? 'text-right' : 'text-left'}`}
+                            className={`space-x-2 bg-slate-400 p-2  ${message.sender === MessageSender.User ? 'ml-auto' : 'mr-auto '} rounded-2xl flex ${message.sender === MessageSender.User ? 'text-right' : 'text-left'}`}
                         >
                             <span className='text-white'>
                                 {message.content}
+                            </span>
+                            <span className='text-white'>
+                                {message.date.toLocaleString('pt-BR', { hour: 'numeric', minute: 'numeric' })}
                             </span>
                         </div>
                     ))}

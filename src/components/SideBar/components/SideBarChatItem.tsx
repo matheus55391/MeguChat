@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 
 interface SideBarChatItemProps {
@@ -16,7 +17,7 @@ export const SideBarChatItem: React.FC<SideBarChatItemProps> = ({ title, lastMes
             data-testid="sidebar-chat-item"
         >
             <div className="flex min-h-12 min-w-12 max-w-12 max-h-12 bg-blue-600 rounded-full overflow-hidden dark:bg-white">
-                <Image src="https://source.unsplash.com/random" alt="avatar" width={100} height={100} />
+                <Image src="https://i.pravatar.cc" alt="avatar" width={100} height={100} />
             </div>
             <div className="flex flex-col w-full m-2 overflow-hidden">
                 <h1 data-testid="sidebar-chat-item-title" className="text-lg font-bold text-black dark:text-white">{title}</h1>
