@@ -1,6 +1,6 @@
 "use client";
 
-import useTheme from "@/hooks/useThemeHook";
+import useTheme from "@/hooks/useTheme";
 import { useEffect, useState } from "react";
 import { BsSunFill } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";

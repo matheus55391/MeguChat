@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 enum Theme {
@@ -6,12 +8,13 @@ enum Theme {
 }
 
 const useTheme = () => {
+
   const [theme, setTheme] = useState<Theme>(
-    localStorage?.getItem("theme") === Theme.DARK ? Theme.DARK : Theme.LIGHT
+    window?.localStorage?.getItem("theme") === Theme.DARK ? Theme.DARK : Theme.LIGHT
   );
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
+    const storedTheme = window?.localStorage?.getItem("theme");
 
     switch (storedTheme) {
       case Theme.LIGHT:
@@ -28,10 +31,10 @@ const useTheme = () => {
   useEffect(() => {
     if (theme === Theme.DARK) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", Theme.DARK);
+      window?.localStorage?.setItem("theme", Theme.DARK);
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", Theme.LIGHT);
+      window?.localStorage?.setItem("theme", Theme.LIGHT);
     }
   }, [theme]);
 
