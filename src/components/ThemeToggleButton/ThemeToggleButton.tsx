@@ -14,7 +14,7 @@ const ThemeToggleButton: React.FC = () => {
 
     return (
         <div
-            className="relative w-16 h-8 flex items-center dark:bg-gray-800 bg-orange-500 cursor-pointer rounded-full p-1 border-1"
+            className="relative w-16 h-8 flex items-center dark:bg-zinc-800 bg-orange-500 cursor-pointer rounded-full p-1 border-1"
             onClick={toggleTheme}
             style={{ transition: "background 0.3s ease-in-out" }}
         >
@@ -23,7 +23,7 @@ const ThemeToggleButton: React.FC = () => {
                 size={18}
             />
             <div
-                className="absolute bg-white dark:bg-gray-600 w-5 h-5 rounded-full shadow-md transform transition-transform duration-300"
+                className="absolute bg-white dark:bg-zinc-500 w-5 h-5 rounded-full shadow-md transform transition-transform duration-300"
                 style={{
                     transform: theme === Theme.DARK ? "translateX(-5%)" : "translateX(185%)",
                     transition: "transform 0.3s ease-in-out",
