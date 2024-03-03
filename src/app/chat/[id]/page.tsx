@@ -5,10 +5,13 @@ import MainChatArea from '@/components/Wrappers/MainChatArea';
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import SideBar from '@/components/SideBar';
 import ChatsMock from '@/constants/mocks/ChatMock';
-import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { HiMiniArrowSmallRight } from 'react-icons/hi2';
-import { LuSmile } from 'react-icons/lu';
 import { useRouter } from 'next/navigation';
+import Title from '@/components/Title';
+import ThemeToggleButton from '@/components/ThemeToggleButton';
+import ChatItemCard from '@/components/ChatItemCard';
+import SearchInput from '@/components/SearchInput';
+import UserProfile from '@/components/UserProfile';
 interface ChatPageProps {
     params: {
         id: string;
@@ -49,28 +52,39 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
     }, [newMessage]);
 
     const router = useRouter()
+    // const newLocal = <SideBar.SearchInput placeholder='Search for chats' leftIcon={<FaMagnifyingGlass className="text-gray-400" />} />;
     return (
         <div className="flex flex-row h-screen">
             <SideBar.Root>
-                <SideBar.Title>MEGUCHAT</SideBar.Title>
-                <SideBar.SearchInput placeholder='Search for chats' leftIcon={<FaMagnifyingGlass className="text-gray-400" />} />
+                <SideBar.Header>
+                    <div className='flex flex-row items-center justify-between space-x-4'>
+                        <Title>MEGUCHAT</Title>
+                        <ThemeToggleButton />
+                    </div>
 
-                <SideBar.VerticalScroll>
-                    {
-                        ChatsMock.map((chat, key) => (
-                            <SideBar.ChatItem
-                                key={key}
-                                title={chat.title}
-                                lastMessage={'last message'}
-                                lastMessageDate={new Date()}
-                                isSelected={chat.id === selectedId}
-                                onClick={() => { 
-                                    router.push(`/chat/${chat.id}`)
-                                }}
-                            />
-                        ))
-                    }
-                </SideBar.VerticalScroll>
+                </SideBar.Header>
+                <SideBar.Main>
+                    <div className='flex flex-col w-full space-y-2 my-4'>
+                        <SearchInput placeholder='Search for chats' />
+                        {
+                            ChatsMock.map((chat, key) => (
+                                <ChatItemCard
+                                    key={key}
+                                    title={chat.title}
+                                    lastMessage={'last message'}
+                                    lastMessageDate={new Date()}
+                                    isSelected={chat.id === selectedId}
+                                    onClick={() => {
+                                        router.push(`/chat/${chat.id}`)
+                                    }}
+                                />
+                            ))
+                        }
+                    </div>
+                </SideBar.Main>
+                <SideBar.Footer>
+                    <UserProfile image={'https://i.pravatar.cc'} username={"matheus55391"} />
+                </SideBar.Footer>
             </SideBar.Root>
 
 
@@ -99,7 +113,10 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
                     ))}
                 </div>
 
+                {/* <div className='bg-yellow-500'>
+                    <EmojiPicker theme={Theme.AUTO}/>
 
+                </div> */}
                 <div className="flex flex-row bg-zinc-50 items-center p-4 px-2 space-x-2 dark:bg-zinc-900  " >
                     {/* <div className="flex flex-row space-x-2 items-center">
                         <BsImage className="w-6 h-6 text-green-400" />
@@ -114,7 +131,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
                             className="p-1 flex-1 bg-transparent focus:outline-none overflow-x-hidden overflow-y-auto resize-none no-scrollbar dark:text-white"
                             rows={1}
                         />
-                        <LuSmile className="w-6 h-6 text-green-400" />
+                        {/* <LuSmile className="w-6 h-6 text-green-400" /> */}
                     </div>
                     <button className='h-12 w-12 flex items-center justify-center bg-green-400 rounded-lg hover:bg-green-500 focus:outline-none  active:bg-green-600 dark:bg-green-600'>
                         <HiMiniArrowSmallRight className="w-9 h-9 text-white dark:text-black " onClick={sendMessage} />

@@ -1,7 +1,6 @@
 "use client";
 
 import useTheme from "@/hooks/useTheme";
-import { useEffect, useState } from "react";
 import { BsSunFill } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
 
@@ -15,12 +14,12 @@ const ThemeToggleButton: React.FC = () => {
 
     return (
         <div
-            className="relative w-16 h-8 flex items-center dark:bg-gray-800 bg-cyan-500 cursor-pointer rounded-full p-1 border-1"
+            className="relative w-16 h-8 flex items-center dark:bg-gray-800 bg-orange-500 cursor-pointer rounded-full p-1 border-1"
             onClick={toggleTheme}
             style={{ transition: "background 0.3s ease-in-out" }}
         >
             <BsSunFill
-                className=" text-yellow-200 font-bold"
+                className=" text-white font-bold"
                 size={18}
             />
             <div

@@ -1,15 +1,14 @@
-import { SidebarAsideWrapper } from "./components/SideBarAsideWrapper";
-import { SideBarChatItem } from "./components/SideBarChatItem";
-import { SideBarSearchInput } from "./components/SideBarSearchInput";
-import { SideBarTitle } from "./components/SideBarTitle";
-import { SidebarVerticalScroll } from './components/SidebarVerticalScroll'
+import { SideBarRoot } from "./components/SideBarRoot";
+import { SideBarFooter } from "./components/SideBarFooter";
+import { SideBarHeader } from "./components/SideBarHeader";
+import { SideBarMain } from './components/SideBarMain';
 
 const SideBar = {
-    Root: SidebarAsideWrapper,
-    Title: SideBarTitle,
-    VerticalScroll: SidebarVerticalScroll,
-    ChatItem: SideBarChatItem,
-    SearchInput: SideBarSearchInput,
+    Root: SideBarRoot,
+    Header: SideBarHeader,
+    Main: SideBarMain,
+    Footer: SideBarFooter,
+
 }
 
 export default SideBar

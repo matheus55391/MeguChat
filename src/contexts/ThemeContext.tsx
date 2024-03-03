@@ -18,17 +18,19 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(
-        (window?.localStorage?.getItem('theme') as Theme) || Theme.LIGHT
-    );
+    const [theme, setTheme] = useState<Theme>(() => {
+        const storedTheme = localStorage?.getItem('theme');
+        return storedTheme === Theme.DARK ? Theme.DARK : Theme.LIGHT;
+    });
+
 
     useEffect(() => {
         if (theme === Theme.DARK) {
             document.documentElement.classList.add('dark');
-            window?.localStorage?.setItem('theme', Theme.DARK);
+            localStorage?.setItem('theme', Theme.DARK);
         } else {
             document.documentElement.classList.remove('dark');
-            window?.localStorage?.setItem('theme', Theme.LIGHT);
+            localStorage?.setItem('theme', Theme.LIGHT);
         }
     }, [theme]);
 
