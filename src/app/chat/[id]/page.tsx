@@ -12,6 +12,9 @@ import ThemeToggleButton from '@/components/ThemeToggleButton';
 import ChatItemCard from '@/components/ChatItemCard';
 import SearchInput from '@/components/SearchInput';
 import UserProfile from '@/components/UserProfile';
+import CloseModalButton from '@/components/CloseModalButton/CloseModalButton';
+import { useSidebar } from '@/contexts/SidebarContext';
+import { MdOutlineMenu } from 'react-icons/md';
 interface ChatPageProps {
     params: {
         id: string;
@@ -52,11 +55,14 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
     }, [newMessage]);
 
     const router = useRouter()
-    // const newLocal = <SideBar.SearchInput placeholder='Search for chats' leftIcon={<FaMagnifyingGlass className="text-gray-400" />} />;
+    const drawer = useSidebar()
     return (
         <div className="flex flex-row h-screen">
             <SideBar.Root>
                 <SideBar.Header>
+                    <div className='flex md:hidden'>
+                        <CloseModalButton onClick={drawer.closeDrawer} />
+                    </div>
                     <div className='flex flex-row items-center justify-between space-x-4'>
                         <Title>MEGUCHAT</Title>
                         <ThemeToggleButton />
@@ -71,6 +77,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
                                 <ChatItemCard
                                     key={key}
                                     title={chat.title}
+                                    image={'https://i.pravatar.cc/310'}
                                     lastMessage={'last message'}
                                     lastMessageDate={new Date()}
                                     isSelected={chat.id === selectedId}
@@ -83,7 +90,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
                     </div>
                 </SideBar.Main>
                 <SideBar.Footer>
-                    <UserProfile image={'https://i.pravatar.cc'} username={"matheus55391"} />
+                    <UserProfile image={'https://i.pravatar.cc/300'} username={"matheus55391"} />
                 </SideBar.Footer>
             </SideBar.Root>
 
@@ -91,6 +98,12 @@ const ChatPage: React.FC<ChatPageProps> = ({ params }: ChatPageProps) => {
             <MainChatArea>
 
                 <ChatHeader>
+                    <div
+                        onClick={drawer.toggleDrawer}
+                        className='hover:cursor-pointer md:hidden dark:text-white'
+                    >
+                        <MdOutlineMenu size={24} />
+                    </div>
                     <h1 className="text-2xl font-bold dark:text-white">{
                         ChatsMock.find(chat => chat.id === selectedId)?.title
                     }</h1>
